@@ -17,6 +17,3 @@ for i in range(numberOfPlayers):
     globals()[f'{name}'] = Player(name,[])
     players.append(globals()[f'{name}'])
 
-for i in range(len(players)):
-    object = players[i]
-    print(object.name)
