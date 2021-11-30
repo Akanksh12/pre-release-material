@@ -17,6 +17,7 @@ for i in range(numberOfPlayers):
     globals()[f'{name}'] = Player(name,[])
     players.append(globals()[f'{name}'])
 
+print(players)
 # taking in number of holes to be played
 
 try:
@@ -30,5 +31,13 @@ try:
     par = int(input("Enter the par"))
 except:
     print("Enter a valid response, only a integer")
+
+print(f'The number of players are: {numberOfPlayers}')
+print("Names of the players are:")
+for i in range(len(players)):
+    print(f"player:{i + 1} : {i.name})")
+
+print("number of pholes to be played:", numberOfHoles)
+print("par:", par)
 
 
