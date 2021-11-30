@@ -7,7 +7,7 @@ class Player:
 
 numberOfPlayers = int(input("How many players are there?(2,3,4)\n"))
 players = []
-if numberOfPlayers < 2 and numberOfPlayers > 5:
+if numberOfPlayers > 2 and numberOfPlayers < 5:
     print("You have entered an invalid input, please input only 2,3 or 4")
 
 # taking the name of the players
