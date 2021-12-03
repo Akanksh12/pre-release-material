@@ -19,9 +19,7 @@ for i in range(numberOfPlayers):
         if name[i].isdigit():
             print("The name is not valid")
             quit()
-    print(name)
-    name = Player(name,[])
-    print(name)
+    name = Player(name, [])
     players.append(name)
 
 # taking in number of holes to be played
@@ -30,6 +28,7 @@ if numberOfHoles == 9 or numberOfHoles == 18:
     print("You have entered a valid input")
 else:
     print("You have entered an invalid input, please enter 9 or 18")
+    quit()
 # taking the par 
 
 try:
