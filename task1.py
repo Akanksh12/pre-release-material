@@ -7,23 +7,29 @@ class Player:
 
 numberOfPlayers = int(input("How many players are there?(2,3,4)\n"))
 players = []
-if numberOfPlayers > 2 and numberOfPlayers < 5:
+if numberOfPlayers < 2 or numberOfPlayers > 4:
     print("You have entered an invalid input, please input only 2,3 or 4")
+    quit()
 
 # taking the name of the players
 
 for i in range(numberOfPlayers):
     name = str(input(f"What is the name of player:{i+1}\n"))
-    globals()[f'{name}'] = Player(name,[])
-    players.append(globals()[f'{name}'])
+    for i in range(len(name)):
+        if name[i].isdigit():
+            print("The name is not valid")
+            quit()
+    print(name)
+    name = Player(name,[])
+    print(name)
+    players.append(name)
 
 # taking in number of holes to be played
-
-try:
-    numberOfHoles = int(input("Enter the number of holes to be played\n"))
-except:
-    print("Please enter a valid integer(9 or 18)")
-
+numberOfHoles = int(input("Enter the number of holes to be played\n"))
+if numberOfHoles == 9 or numberOfHoles == 18:
+    print("You have entered a valid input")
+else:
+    print("You have entered an invalid input, please enter 9 or 18")
 # taking the par 
 
 try:
