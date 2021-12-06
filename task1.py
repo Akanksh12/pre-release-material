@@ -20,11 +20,9 @@ for i in range(numberOfPlayers):
         for i in range(len(name)):
             if name[i].isdigit():
                 print("The name is not valid")
-            else:
                 break
-
-        name = Player(name, [])
-        players.append(name)
+    name = Player(name, [])
+    players.append(name)
 
 # taking in number of holes to be played
 while True:
