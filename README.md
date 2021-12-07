@@ -2,5 +2,5 @@
 
 ### This repository is pre-release material
 
-[task 1](https://github.com/Akanksh12/pre-release-material/blob/main/task1.py)
+[pre-release-material](https://raw.githubusercontent.com/Akanksh12/pre-release-material/main/preReleaseMaterial.py)
 
