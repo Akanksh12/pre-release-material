@@ -88,28 +88,29 @@ print("par:", par)
 #            print("The scores are the same")
 #        else:
 #            print("The scores are not the same please try again")
- 
+
+j = 0 
 for i in range(numberOfHoles):
-    j = 0
-    while j < numberOfPlayers:
-        score1 = int(input(f"Enter the score for hole{i + 1}, of player {players[j].name} with player number: {j + 1}(first time)"))
-        score2 = int(input(f"Enter the score for hole{i + 1}, of player {players[j].name} with player number: {j + 1}(second time)"))
+    while j <= (numberOfPlayers - 1):
+        if j == numberOfPlayers:
+            break
+        score1 = int(input(f"Enter the score for hole{i + 1}, of player {players[j].name} with player number: {j + 1}(first time)\n"))
+        score2 = int(input(f"Enter the score for hole{i + 1}, of player {players[j].name} with player number: {j + 1}(second time)\n"))
         scores = [score1, score2]
-        j += 1
         for x in range(len(scores)):
             if type(scores[x]) == "str":
                 print(f"score {x} is a invalid input(string instead of integer), please enter a integer above -1")
-                j -= 1
-                break
+                continue
             if scores[x] < 0:
                 print(f"score {x} is a invalid input(value is less than 0), please enter a integer above -1")
-                j -= 1
-                break
+                continue
         if score1 == score2:
             print("Both the inputs are the same")
+            players[j].scoreList[i] = score1
+            j += 1
+            break
         else:
             print(f"{score1} and {score2} are not the same. Please enter your score again")
-            j -= 1
 
 playern = int(input(f"Enter your player number for checking your scores(1,2,3 or 4)"))
 playern -= 1
