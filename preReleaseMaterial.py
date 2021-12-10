@@ -90,12 +90,28 @@ for i in range(numberOfHoles):
 # asking for which player to display their scores
 while True:
     try:
-        showScores = str(input("Would you like to view any players scores?(Y or N)"))
+        showScores = str(input("Would you like to view any players scores?(Y or N)\n"))
         if showScores == "Y":
             playern = int(input(f"Enter your player number for checking your scores(1,2,3 or 4)"))
             playern -= 1
             print(f"{players[playern].name}'s scores are:")
             for i in range(numberOfHoles):
                 print(f"score for hole {i + 1} is {players[playern].scoreList[i]}")
+            break
     except:
         print("Please enter Y or N")
+
+# task 3
+
+# displaying scores relative to par
+
+print("\n\nName\tscore")
+
+for i in range(numberOfPlayers):
+    score = sum(players[i].scoreList)
+    scoreRelativeToPar = score - par
+    if scoreRelativeToPar < 0:
+        scoreRelativeToPar *= -1
+        print(f"{players[i].name}\t{scoreRelativeToPar} under par")
+    else:
+        print(f"{players[i].name}\t{scoreRelativeToPar} over par")
