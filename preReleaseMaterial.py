@@ -91,9 +91,7 @@ print("par:", par)
 
 j = 0 
 for i in range(numberOfHoles):
-    while j <= (numberOfPlayers - 1):
-        if j == numberOfPlayers:
-            break
+    while j < (numberOfPlayers):
         score1 = int(input(f"Enter the score for hole{i + 1}, of player {players[j].name} with player number: {j + 1}(first time)\n"))
         score2 = int(input(f"Enter the score for hole{i + 1}, of player {players[j].name} with player number: {j + 1}(second time)\n"))
         scores = [score1, score2]
