@@ -114,10 +114,7 @@ print("\n\nName\tscore")
 scores = []
 for i in range(numberOfPlayers):
     score = sum(players[i].scoreList)
-    print(score)
-    print(players[i].scoreList)
     scores.append(score)
-    print(scores)
     scoreRelativeToPar = score - par
     if scoreRelativeToPar < 0:
         scoreRelativeToPar *= -1
@@ -125,8 +122,7 @@ for i in range(numberOfPlayers):
     else:
         print(f"{players[i].name}\t{scoreRelativeToPar} over par")
 
-scores = scores.sort()
-print("sorted",scores)
+scores.sort()
 for i in range(len(players)):
     currentScore = sum(players[i].scoreList)
     if scores[i] == currentScore:
