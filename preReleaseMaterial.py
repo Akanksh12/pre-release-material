@@ -106,12 +106,22 @@ while True:
 # displaying scores relative to par
 
 print("\n\nName\tscore")
-
+scores = []
+names = []
 for i in range(numberOfPlayers):
     score = sum(players[i].scoreList)
+    scores.append(score)
+    names.append(players[i].name)
     scoreRelativeToPar = score - par
     if scoreRelativeToPar < 0:
         scoreRelativeToPar *= -1
         print(f"{players[i].name}\t{scoreRelativeToPar} under par")
     else:
         print(f"{players[i].name}\t{scoreRelativeToPar} over par")
+
+scores = scores.sort()
+for i in range(len(players)):
+    if scores[i] == sum(players[i].scoreList):
+        winner = players[i].name
+
+print(f"Winner is {winner} with the score of {scores[0]}")
