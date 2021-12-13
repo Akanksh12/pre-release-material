@@ -92,7 +92,7 @@ while True:
     try:
         showScores = str(input("Would you like to view any players scores?(Y or N)\n"))
         if showScores == "Y" or showScores == "y":
-            playern = str(input(f"Enter the player's name"))
+            playern = str(input(f"Enter the player's name\n"))
             for i in range(numberOfPlayers):
                 if players[i].name == playern:
                     playern = i
@@ -126,8 +126,10 @@ for i in range(numberOfPlayers):
         print(f"{players[i].name}\t{scoreRelativeToPar} over par")
 
 scores = scores.sort()
+print("sorted",scores)
 for i in range(len(players)):
-    if scores[i] == sum(players[i].scoreList):
+    currentScore = sum(players[i].scoreList)
+    if scores[i] == currentScore:
         winner = players[i].name
 
 print(f"Winner is {winner} with the score of {scores[0]}")
