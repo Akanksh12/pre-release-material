@@ -107,11 +107,9 @@ while True:
 
 print("\n\nName\tscore")
 scores = []
-names = []
 for i in range(numberOfPlayers):
     score = sum(players[i].scoreList)
     scores.append(score)
-    names.append(players[i].name)
     scoreRelativeToPar = score - par
     if scoreRelativeToPar < 0:
         scoreRelativeToPar *= -1
