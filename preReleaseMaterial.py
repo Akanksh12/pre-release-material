@@ -71,8 +71,8 @@ for i in range(numberOfHoles):
     j = 0
     while j <= (numberOfPlayers - 1):
         try:
-            score1 = int(input(f"Enter the score for hole {i + 1}, of player {players[j].name} with player number: {j + 1}(first time)\n"))
-            score2 = int(input(f"Enter the score for hole {i + 1}, of player {players[j].name} with player number: {j + 1}(second time)\n"))
+            score1 = int(input(f"Enter the score for hole {i + 1}, of player {players[j].name} (first time)\n"))
+            score2 = int(input(f"Enter the score for hole {i + 1}, of player {players[j].name} (second time)\n"))
             scores = [score1, score2]
         except:
             print("Input is invalid, please enter a valid integer not a string")
@@ -91,12 +91,17 @@ for i in range(numberOfHoles):
 while True:
     try:
         showScores = str(input("Would you like to view any players scores?(Y or N)\n"))
-        if showScores == "Y":
-            playern = int(input(f"Enter your player number for checking your scores(1,2,3 or 4)"))
-            playern -= 1
+        if showScores == "Y" or showScores == "y":
+            playern = str(input(f"Enter the player's name"))
+            for i in range(numberOfPlayers):
+                if players[i].name == playern:
+                    playern = i
+                    break
             print(f"{players[playern].name}'s scores are:")
             for i in range(numberOfHoles):
                 print(f"score for hole {i + 1} is {players[playern].scoreList[i]}")
+            break
+        else:
             break
     except:
         print("Please enter Y or N")
@@ -109,7 +114,10 @@ print("\n\nName\tscore")
 scores = []
 for i in range(numberOfPlayers):
     score = sum(players[i].scoreList)
+    print(score)
+    print(players[i].scoreList)
     scores.append(score)
+    print(scores)
     scoreRelativeToPar = score - par
     if scoreRelativeToPar < 0:
         scoreRelativeToPar *= -1
