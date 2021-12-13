@@ -128,4 +128,58 @@ for i in range(len(players)):
     if scores[i] == currentScore:
         winner = players[i].name
 
-print(f"Winner is {winner} with the score of {scores[0]}")
+print(f"Winner is {winner} with the score of {scores[0]}\n\n")
+print("1) every player’s score for each hole")
+print("2) the player’s name and hole number of any score of one for a hole (hole-in-one)")
+print("3) the average score for the round")
+print("4) the average score for a hole.")
+while True:
+    try:
+        option_number = int(input("Please enter the option number of your choice\n"))
+        break
+    except:
+        print("Invalid input was entered. Try again")
+
+while True:
+    try:
+        nameOfPlayer = str(input("Enter the name of the player\n"))
+        break
+    except:
+        print("Invalid input was entered. Try again")       
+
+if option_number == 1:
+    for i in range(numberOfPlayers):
+        if players[i].name == nameOfPlayer:
+            name_index = i
+            break
+    for i in range(numberOfHoles):
+        print(f"hole {numberOfHoles}, score: {players[name_index].scoreList[i]}")
+
+if option_number == 2:
+    for i in range(numberOfHoles):
+        if players[name_index] == 1:
+            print(f"player: {players[name_index].name} made a hole in one in hole: {i + 1}")
+
+# total of every player's score / number of players * number of holes
+if option_number == 3:
+    totalOfEverPlayer = sum(scores)
+    average = totalOfEverPlayer / (numberOfHoles * numberOfPlayers)
+    print(f"average of this round is {average}")
+
+if option_number == 4:
+    while True:
+        try:
+            hole_number = int(input("Enter the hole number\n"))
+        except:
+            print("Invalid input, please try again")
+    sumOfScores = 0
+    for i in range(numberOfPlayers):
+        sumOfScores += players[i].scoreList[hole_number]
+    average = sumOfScores / numberOfPlayers
+    print(f"average of hole: {hole_number} is {average}")
+
+    
+    
+
+    
+    
