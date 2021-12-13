@@ -141,26 +141,21 @@ while True:
     except:
         print("Invalid input was entered. Try again")
 
-while True:
-    try:
-        nameOfPlayer = str(input("Enter the name of the player\n"))
-        break
-    except:
-        print("Invalid input was entered. Try again")       
-
 for i in range(numberOfPlayers):
     if players[i].name == nameOfPlayer:
         name_index = i
         break
 
 if option_number == 1:
-    for i in range(numberOfHoles):
-        print(f"hole {numberOfHoles}, score: {players[name_index].scoreList[i]}")
+    for i in range(numberOfPlayers):
+       for j in range(numberOfHoles):
+           print(f"score by {players[i].name} for hole: {j}")
 
 if option_number == 2:
-    for i in range(numberOfHoles):
-        if players[name_index] == 1:
-            print(f"player: {players[name_index].name} made a hole in one in hole: {i + 1}")
+    for i in range(numberOfPlayers):
+        for j in range(numberOfHoles):
+            if players[i].scoreList[j] == 1:
+                print(f"{players[i].name} has scored a hole-in-one at hole:{j}")
 
 # total of every player's score / number of players * number of holes
 if option_number == 3:
