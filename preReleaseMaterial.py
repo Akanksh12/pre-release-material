@@ -81,7 +81,6 @@ for i in range(numberOfHoles):
                 print(f"score {x} is a invalid input(value is less than 0), please enter a integer above -1")
                 continue
         if score1 == score2:
-            print("Both the inputs are the same")
             players[j].scoreList[i] = score1
             j += 1
         else:
@@ -123,10 +122,12 @@ for i in range(numberOfPlayers):
         print(f"{players[i].name}\t{scoreRelativeToPar} over par")
 
 scores.sort()
+print("printing scores before checking winner:\n",scores)
 for i in range(len(players)):
-    currentScore = sum(players[i].scoreList)
-    if scores[i] == currentScore:
-        winner = players[i].name
+    for j in range(len(scores)):
+        if sum(players[i].scoreList) == scores[j]:
+            winner = players[i].name
+            break
 
 print(f"Winner is {winner} with the score of {scores[0]}\n\n")
 print("1) every player’s score for each hole")
@@ -147,11 +148,12 @@ while True:
     except:
         print("Invalid input was entered. Try again")       
 
+for i in range(numberOfPlayers):
+    if players[i].name == nameOfPlayer:
+        name_index = i
+        break
+
 if option_number == 1:
-    for i in range(numberOfPlayers):
-        if players[i].name == nameOfPlayer:
-            name_index = i
-            break
     for i in range(numberOfHoles):
         print(f"hole {numberOfHoles}, score: {players[name_index].scoreList[i]}")
 
@@ -176,10 +178,4 @@ if option_number == 4:
     for i in range(numberOfPlayers):
         sumOfScores += players[i].scoreList[hole_number]
     average = sumOfScores / numberOfPlayers
-    print(f"average of hole: {hole_number} is {average}")
-
-    
-    
-
-    
-    
+    print(f"average of hole: {hole_number} is {average}") 
