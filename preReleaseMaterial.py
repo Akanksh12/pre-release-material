@@ -20,7 +20,6 @@ for i in range(numberOfPlayers):
         name = str(input(f"What is the name of player:{i+1}\n"))
     except:
         print("Please enter a valid name(do not include numbers")
-        break
 
     for j in range(len(name)):
         if name[i].isdigit():
