@@ -122,7 +122,6 @@ for i in range(numberOfPlayers):
         print(f"{players[i].name}\t{scoreRelativeToPar} over par")
 
 scores.sort()
-print("printing scores before checking winner:\n",scores)
 for i in range(len(players)):
     for j in range(len(scores)):
         if sum(players[i].scoreList) == scores[j]:
@@ -141,11 +140,6 @@ while True:
     except:
         print("Invalid input was entered. Try again")
 
-for i in range(numberOfPlayers):
-    if players[i].name == nameOfPlayer:
-        name_index = i
-        break
-
 if option_number == 1:
     for i in range(numberOfPlayers):
        for j in range(numberOfHoles):
@@ -155,7 +149,7 @@ if option_number == 2:
     for i in range(numberOfPlayers):
         for j in range(numberOfHoles):
             if players[i].scoreList[j] == 1:
-                print(f"{players[i].name} has scored a hole-in-one at hole:{j}")
+                print(f"{players[i].name} has scored a hole-in-one at hole:{j + 1}")
 
 # total of every player's score / number of players * number of holes
 if option_number == 3:
@@ -167,6 +161,7 @@ if option_number == 4:
     while True:
         try:
             hole_number = int(input("Enter the hole number\n"))
+            break
         except:
             print("Invalid input, please try again")
     sumOfScores = 0
