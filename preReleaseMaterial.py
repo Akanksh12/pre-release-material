@@ -142,8 +142,9 @@ while True:
 
 if option_number == 1:
     for i in range(numberOfPlayers):
-       for j in range(numberOfHoles):
+        for j in range(numberOfHoles):
            print(f"score by {players[i].name} for hole: {j}")
+        print('\n')
 
 if option_number == 2:
     for i in range(numberOfPlayers):
