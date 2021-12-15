@@ -1,5 +1,5 @@
 run:
-	python *.py
+	./preReleaseMaterial.py
 commit:
 	echo "Enter the commit message\n"
 	read message
