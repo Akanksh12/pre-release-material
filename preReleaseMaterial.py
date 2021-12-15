@@ -121,51 +121,65 @@ for i in range(numberOfPlayers):
         print(f"{players[i].name}\t{scoreRelativeToPar} over par")
 
 scores.sort()
+tie = False
 for i in range(len(players)):
-    for j in range(len(scores)):
-        if sum(players[i].scoreList) == scores[j]:
-            winner = players[i].name
+    current_player = players[i]
+    if tie == True:
+        break
+    for j in range(1, len(players)):
+        if sum(current_player.scoreList) == sum(players[j].scoreList):
+            print(f"Players {current_player.name} and {players[j].name} have tied.")
+            tie = True
             break
 
-print(f"Winner is {winner} with the score of {scores[0]}\n\n")
-print("1) every player’s score for each hole")
-print("2) the player’s name and hole number of any score of one for a hole (hole-in-one)")
-print("3) the average score for the round")
-print("4) the average score for a hole.")
+if tie == False:            
+    for i in range(len(players)):
+        for j in range(len(scores)):
+            if sum(players[i].scoreList) == scores[j]:
+                winner = players[i].name
+                break
+# repeat this menu
+    print(f"Winner is {winner} with the score of {scores[0]}\n\n")
 while True:
-    try:
-        option_number = int(input("Please enter the option number of your choice\n"))
-        break
-    except:
-        print("Invalid input was entered. Try again")
-
-if option_number == 1:
-    for i in range(numberOfPlayers):
-        for j in range(numberOfHoles):
-           print(f"score by {players[i].name} for hole: {j}")
-        print('\n')
-
-if option_number == 2:
-    for i in range(numberOfPlayers):
-        for j in range(numberOfHoles):
-            if players[i].scoreList[j] == 1:
-                print(f"{players[i].name} has scored a hole-in-one at hole:{j + 1}")
-
-# total of every player's score / number of players * number of holes
-if option_number == 3:
-    totalOfEverPlayer = sum(scores)
-    average = totalOfEverPlayer / (numberOfHoles * numberOfPlayers)
-    print(f"average of this round is {average}")
-
-if option_number == 4:
+    print("1) every player’s score for each hole")
+    print("2) the player’s name and hole number of any score of one for a hole (hole-in-one)")
+    print("3) the average score for the round")
+    print("4) the average score for a hole.")
     while True:
         try:
-            hole_number = int(input("Enter the hole number\n"))
+            option_number = int(input("Please enter the option number of your choice\n"))
             break
         except:
-            print("Invalid input, please try again")
-    sumOfScores = 0
-    for i in range(numberOfPlayers):
-        sumOfScores += players[i].scoreList[hole_number]
-    average = sumOfScores / numberOfPlayers
-    print(f"average of hole: {hole_number} is {average}") 
+            print("Invalid input was entered. Try again")
+
+    if option_number == 1:
+        for i in range(numberOfPlayers):
+            for j in range(numberOfHoles):
+               print(f"score by {players[i].name} for hole: {j}")
+            print('\n')
+
+    if option_number == 2:
+        for i in range(numberOfPlayers):
+            for j in range(numberOfHoles):
+                if players[i].scoreList[j] == 1:
+                    print(f"{players[i].name} has scored a hole-in-one at hole:{j + 1}")
+
+    # total of every player's score / number of players * number of holes
+    if option_number == 3:
+        totalOfEverPlayer = sum(scores)
+        average = totalOfEverPlayer / (numberOfHoles * numberOfPlayers)
+        print(f"average of this round is {average}")
+
+    # todo: show for every hole
+    if option_number == 4:
+        while True:
+            try:
+                hole_number = int(input("Enter the hole number\n"))
+                break
+            except:
+                print("Invalid input, please try again")
+        sumOfScores = 0
+        for i in range(numberOfPlayers):
+            sumOfScores += players[i].scoreList[hole_number]
+        average = sumOfScores / numberOfPlayers
+        print(f"average of hole: {hole_number} is {average}") 
