@@ -140,7 +140,6 @@ if tie == False:
             if sum(players[i].scoreList) == scores[j]:
                 winner = players[i].name
                 break
-# repeat this menu
     print(f"Winner is {winner} with the score of {scores[0]}\n\n")
 while True:
     print("1) every player’s score for each hole")
@@ -173,7 +172,6 @@ while True:
         average = totalOfEverPlayer / (numberOfHoles * numberOfPlayers)
         print(f"average of this round is {average}")
 
-    # todo: show for every hole
     if option_number == 4:
         while True:
             try:
