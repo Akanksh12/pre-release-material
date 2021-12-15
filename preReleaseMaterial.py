@@ -147,6 +147,7 @@ while True:
     print("2) the player’s name and hole number of any score of one for a hole (hole-in-one)")
     print("3) the average score for the round")
     print("4) the average score for a hole.")
+    print("5) quit")
     while True:
         try:
             option_number = int(input("Please enter the option number of your choice\n"))
@@ -185,3 +186,5 @@ while True:
             sumOfScores += players[i].scoreList[hole_number]
         average = sumOfScores / numberOfPlayers
         print(f"average of hole: {hole_number} is {average}") 
+    if option_number == 5:
+        quit()
